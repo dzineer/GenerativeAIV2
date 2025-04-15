@@ -1,0 +1,10 @@
+{
+  "name": "example-backend-plugin",
+  "version": "0.1.0",
+  "description": "An example sandboxed backend plugin.",
+  "main": "plugin.js",
+  "private": true,
+  "electronPlugin": {
+    "backendEntry": "index.html"
+  }
+} 

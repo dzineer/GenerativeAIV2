@@ -1,0 +1,97 @@
+{
+  "name": "electron-terminal",
+  "version": "1.0.0",
+  "description": "Terminal implementation in Electron",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "dist/main/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev:vite": "vite --force",
+    "dev:electron": "wait-on tcp:5173 && NODE_ENV=development electron .",
+    "dev": "concurrently \"npm:dev:vite\" \"npm:dev:electron\"",
+    "start": "electron .",
+    "build:vite": "NODE_ENV=production vite build",
+    "build:electron": "NODE_ENV=production electron-builder",
+    "electron:debug-debug-build": "electron-builder --dir --config electron-builder.yml",
+    "build": "NODE_ENV=production npm run build:vite && npm run build:electron && node scripts/verify-plugins.js",
+    "verify-plugins": "node scripts/verify-plugins.js",
+    "preview": "vite preview",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "author": "Frank Decker III",
+  "license": "MIT",
+  "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@vscode/codicons": "^0.0.36",
+    "@xterm/addon-fit": "^0.9.0",
+    "@xterm/addon-web-links": "^0.10.0",
+    "@xterm/addon-webgl": "^0.17.0",
+    "@xterm/xterm": "^5.4.0",
+    "electron-store": "^10.0.1",
+    "fix-path": "^4.0.0",
+    "monaco-editor": "^0.52.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-resizable-panels": "^2.1.7",
+    "styled-components": "^6.1.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.3",
+    "electron-rebuild": "^3.2.9",
+    "electron-tools": "^2.4.2",
+    "glob": "^11.0.1",
+    "vite": "^5.1.0",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-monaco-editor": "^1.1.0",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "com.dzineer.VibeAIStudio",
+    "productName": "Vibe AI Studio",
+    "files": [
+      "dist/**/*",
+      "package.json",
+      "plugins/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "plugins",
+        "to": "plugins",
+        "filter": ["**/*"]
+      }
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "asar": false,
+    "asarUnpack": [
+      "plugins/**/*",
+      "dist/the-boss.js",
+      "dist/the-boss-preload.js",
+      "dist/plugin-loader.js",
+      "dist/status-bar-preload.js",
+      "dist/plugin-preload.js"
+    ],
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "identity": null
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+appId: com.dzineer.vibeaistudio
+productName: Vibe AI Studio
+copyright: Copyright © 2024 Dzineer
+asar: false
+asarUnpack:
+  - "**/*.node"
+  - "**/node_modules/sharp/**/*"
+directories:
+  output: release
+  buildResources: build
+files:
+  - from: "dist/"
+    to: "dist"
+  - "package.json"
+  - "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}"
+  - "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}"
+  - "!**/node_modules/*.d.ts"
+  - "!**/node_modules/.bin"
+  - "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}"
+  - "!.editorconfig"
+  - "!**/._*"
+  - "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}"
+  - "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}"
+  - "!**/{appveyor.yml,.travis.yml,circle.yml}"
+  - "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+extraResources:
+  - from: plugins
+    to: plugins
+    filter:
+      - "**/*"
+mac:
+  target:
+    - target: dir
+    - target: dmg
+  artifactName: ${productName}-${version}-${arch}.${ext}
+  category: public.app-category.developer-tools
+  darkModeSupport: true
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  extendInfo:
+    NSMicrophoneUsageDescription: Please give us access to your microphone
+    NSCameraUsageDescription: Please give us access to your camera
+win:
+  target:
+    - target: nsis
+    - target: portable
+  artifactName: ${productName}-${version}-${arch}.${ext}
+linux:
+  target:
+    - target: AppImage
+    - target: snap
+    - target: deb
+  artifactName: ${productName}-${version}-${arch}.${ext}
+  category: Development
+  maintainer: dzineer.com
+npmRebuild: true
+buildDependenciesFromSource: true
+nodeGypRebuild: false
+electronDownload:
+  mirror: https://github.com/electron/electron/releases/download/
+publish:
+  provider: github
+  owner: dzineer
+  repo: vibe-ai-studio
+  private: true
+  token: ${env.GH_TOKEN}
+electronVersion: ${version}
+debug: true # Enable debug mode
+afterPack: ./scripts/after-pack.js

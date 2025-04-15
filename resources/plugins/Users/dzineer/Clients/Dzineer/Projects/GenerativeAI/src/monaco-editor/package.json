@@ -1,0 +1,15 @@
+{
+  "name": "monaco-editor",
+  "version": "1.0.0",
+  "electronPlugin": {
+    "contributes": {
+      "uiPanels": [
+        {
+          "id": "editor",
+          "name": "Monaco Editor",
+          "componentPath": "index.tsx"
+        }
+      ]
+    }
+  }
+} 

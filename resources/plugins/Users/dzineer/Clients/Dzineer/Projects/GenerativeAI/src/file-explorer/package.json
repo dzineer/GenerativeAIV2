@@ -1,0 +1,15 @@
+{
+  "name": "file-explorer",
+  "version": "1.0.0",
+  "electronPlugin": {
+    "contributes": {
+      "uiPanels": [
+        {
+          "id": "file-explorer",
+          "name": "File Explorer",
+          "componentPath": "index.jsx"
+        }
+      ]
+    }
+  }
+} 

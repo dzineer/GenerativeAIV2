@@ -1,0 +1,17 @@
+{
+  "name": "file-explorer-provider",
+  "version": "0.1.0",
+  "description": "Provides the File Explorer panel as a trusted UI Contribution Plugin.",
+  "main": "FileExplorerPanel.jsx", 
+  "private": true,
+  "electronPlugin": {
+    "contributes": {
+      "uiPanels": [
+        {
+          "id": "fileExplorer",
+          "componentPath": "./FileExplorerPanel.jsx"
+        }
+      ]
+    }
+  }
+} 

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <title>Status Bar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0 10px;
+            height: 25px; /* Match desired height */
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0; /* Light theme default */
+            color: #333333; /* Light theme default */
+            font-family: sans-serif;
+            font-size: 0.9em;
+            border-top: 1px solid #cccccc; /* Light theme default */
+            box-sizing: border-box;
+            overflow: hidden; /* Prevent scrollbars */
+            user-select: none; /* Prevent text selection */
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+        }
+        body.dark-mode {
+            background-color: #333333;
+            color: #d4d4d4;
+            border-top-color: #444444;
+        }
+        /* Add more styles for status bar content here */
+    </style>
+</head>
+<body>
+    <!-- Status bar content goes here -->
+    <span id="status-text">Status Bar</span>
+    <button id="theme-toggle-btn" style="margin-left: auto;">Toggle Theme</button>
+
+    <!-- <script>
+        // All the inline JavaScript code was here...
+    </script> -->
+    
+    <!-- Load script from external file instead -->
+    <script defer src="status-bar.js"></script>
+</body>
+</html> 

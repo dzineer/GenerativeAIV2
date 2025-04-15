@@ -1,0 +1,30 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+# Custom Instructions
+
+- ALWAYS use the search tool to do an in-depth research on each thing you are trying to accomplish, if you truly see that you cannot do it with just your knowledge you have. You also should not use just the first one you get back, but only if you know that this is a good response with valid way or valid knowledge on the topic or feature, functionality.
+- Always first ask when making visual changes (colors, themes, rearrangements) other than specifically requested work
+- Always look for existing code to iterate on instead of creating new code
+- Always ask before moving to next todo item
+- Do not drastically change patterns before trying to iterate on existing ones
+- Always prefer simple solutions
+- Avoid code duplication by checking for similar existing functionality
+- Only make requested changes or ones well understood and related to the task
+- Exhaust existing implementation options before introducing new patterns/technology
+- Keep codebase clean and organized
+- Avoid one-off scripts in files
+- Keep files under 200-300 lines, refactor when needed
+- Only mock data for tests, never for dev/prod
+- Never add stubbing/fake data patterns affecting dev/prod
+- Focus only on task-relevant code areas
+- Write thorough tests for major functionality
+- Avoid major architectural changes unless instructed
+- Consider impacts on other code areas
+- Keep functions within proper class/module scope
+- Limit files to 100 lines of code
+- NEVER use just the first search result - evaluate multiple sources for validity and currency
+- Only implement solutions verified as well-documented and following best practices

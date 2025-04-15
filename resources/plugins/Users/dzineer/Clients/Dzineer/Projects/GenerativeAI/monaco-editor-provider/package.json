@@ -1,0 +1,17 @@
+{
+  "name": "monaco-editor-provider",
+  "version": "0.1.0",
+  "description": "Provides the Monaco Editor component as a trusted UI Contribution Plugin.",
+  "main": "EditorPanel.jsx", 
+  "private": true,
+  "electronPlugin": {
+    "contributes": {
+      "uiPanels": [
+        {
+          "id": "monacoEditor",
+          "componentPath": "./EditorPanel.jsx"
+        }
+      ]
+    }
+  }
+} 

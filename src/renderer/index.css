@@ -1,0 +1,57 @@
+@import '@vscode/codicons/dist/codicon.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  overflow: hidden; /* Prevent scrollbars on body */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  height: 100vh;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars on body/root */
+}
+
+/* Set base background for light mode */
+html {
+  background-color: #f0f0f0; /* Match lightTheme.appBg */
+}
+
+/* Set base background for dark mode */
+/* We can target the theme setting on the body later if needed,
+   but setting html background often suffices */
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #1e1e1e; /* Match darkTheme.appBg */
+  }
+}
+
+/* Optional: Apply theme to body as well, if html doesn't cover everything */
+body {
+   background-color: inherit; /* Inherit from html */
+} 
